@@ -1,0 +1,93 @@
+/* HALO — dark aerospace visual overrides */
+/* HALO | Aeroespacial institucional — capa visual sin modificar funciones */
+:root{
+ --bg:#08111f;--card:#111f32;--ink:#ecf3fd;--soft:#a6b8cf;--line:#2b4059;
+ --teal:#28a8e0;--lav:#7995d6;--peach:#ae9f87;--sun:#d8ac52;--mint:#47bea7;--coral:#ef756e;--sky:#56b9ee;
+ --sc:#2f94db;--sc2:#1b3653;--sc3:#b4e4ff;
+}
+body.estacion{--sc:#238bc9;--sc2:#193650;--sc3:#b9e7ff}
+body.viaje{--sc:#597ece;--sc2:#202f52;--sc3:#d0ddff}
+body.luna{--sc:#a59373;--sc2:#35372f;--sc3:#e8dac0}
+body{font-family:Barlow,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+body:before{background:radial-gradient(900px 520px at 100% 0%,rgba(33,86,143,.25),transparent 65%),radial-gradient(760px 520px at 0% 85%,rgba(31,75,107,.18),transparent 60%);pointer-events:none}
+h1,h2,h3{font-family:Rajdhani,Barlow,sans-serif;font-weight:700;letter-spacing:.014em}
+header{background:rgba(10,22,39,.95);border-bottom:1px solid #304660;box-shadow:0 2px 15px rgba(0,0,0,.18)}
+.brand h1{font-size:27px;letter-spacing:.14em}
+.brand small{letter-spacing:.02em}
+.card{border:1px solid #2c4058;border-radius:13px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn{border-radius:8px;background:#233752;color:#edf5ff;box-shadow:none;border:1px solid #3d5471;font-weight:700}
+.btn:hover{background:#314b6a}
+.btn.p{background:var(--sc);border-color:var(--sc);color:#fff}
+.btn.p:hover{filter:brightness(1.1)}
+.btn.g{color:#c0d2e7}
+.pill{border:1px solid #365574;border-radius:7px;letter-spacing:.025em}
+.tag,.step{background:#1a2a40;color:#b3c6dd;border:1px solid #314861;border-radius:7px;box-shadow:none}
+.step b{background:#2c4057;color:#eaf3fe}
+.step.on{background:var(--sc);color:white;border-color:var(--sc)}
+.step.ok{color:#bde5ff;background:#163047}
+.step.ok b{background:#234a68;color:#cfefff}
+.scn{border:1px solid #344963}
+.scn:hover{box-shadow:0 10px 26px rgba(1,7,16,.37)}
+.scn .art{background:#0c1727}
+.scn .art svg{filter:saturate(.65) brightness(.82)}
+.scn .art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:saturate(.88) contrast(1.04)}
+.video{background:linear-gradient(150deg,#14283e,#091525);border:1px solid #34516b;border-radius:12px}
+.rec{background:rgba(8,17,31,.87);border:1px solid #405875;color:#e5edf6;border-radius:7px}
+.msg{border-radius:11px}
+.msg.z{background:var(--sc2);color:#eff7ff}
+.msg.u{background:#26364c;color:#eaf4ff}
+.compose textarea,textarea.diary,input,select{color:var(--ink);background:#0d1b2d!important;border-color:#38516e!important;border-radius:8px!important}
+textarea::placeholder,input::placeholder{color:#8397b1}
+textarea:focus,input:focus,select:focus{outline:2px solid #55a8e8;outline-offset:1px}
+.mic{background:var(--sc2);color:var(--sc3)}
+.note{background:#3c3320;color:#f2deb2;border:1px solid #6d5731;border-radius:8px}
+.note.b{background:var(--sc2);color:var(--sc3);border:1px solid #315875}
+.mood{background:#17283e;color:var(--ink);box-shadow:none;border-radius:9px}
+.mood.on{background:var(--sc2);border-color:var(--sc)}
+.scale button{background:#192d44;color:#d6e5f5;border-color:#37536e;border-radius:8px}
+.dimh .ico,.gico{background:var(--sc2);border-radius:8px}
+.bar,.prog{background:#293a51}
+.pvt{background:var(--sc2);border-radius:12px}
+.pvt .big,.pad button,.breath{font-family:Rajdhani,Barlow,sans-serif}
+.pvt.wait{background:#23354b}.pvt.go{background:#435b6a;box-shadow:inset 0 0 0 3px #72b4df}.pvt.early{background:#53363b}
+.arena{background:linear-gradient(180deg,#10263c,#1a2a3e);border:1px solid #35506b;border-radius:12px}
+.met{background:radial-gradient(circle at 35% 35%,#d7e4f1,#638bb1);box-shadow:0 0 13px rgba(104,168,215,.38)}
+.legend div{background:#20324b;box-shadow:none;border-radius:6px}
+.pad button{background:var(--sc2);color:var(--sc3);border-radius:7px}
+.dcard{border-top-width:4px}
+.lv0{--lc:#6bd3bd;--lb:#153b3a}.lv1{--lc:#edc779;--lb:#423b25}.lv2{--lc:#ff9a8d;--lb:#4d3035}
+.lvl{border-radius:5px}
+.breath{background:radial-gradient(circle,#203f59,#10253c);color:#d4ecff;box-shadow:0 0 0 12px #1a3650}
+#botBubble{background:#17283f;color:#eaf4ff;border:1px solid #39536f;box-shadow:0 10px 30px rgba(0,0,0,.35);border-radius:12px}
+#botBtn{background:#20334c;border:1px solid #49637c;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+th{color:#b2c5dc}td,th{border-bottom-color:#31465e}
+.chk input{accent-color:#348fd3}
+footer{color:#a4b7cd}
+@media(max-width:560px){main{padding:14px}.card{padding:15px}.hero h2{font-size:28px}}
+
+
+/* Zambi: fotografía recortada, panel de asistencia y animación interactiva */
+.zambi-wrap{display:inline-flex;width:var(--birdsize);height:calc(var(--birdsize)*.83);align-items:center;justify-content:center;vertical-align:middle;position:relative;flex:none;filter:drop-shadow(0 4px 7px rgba(0,0,0,.28))}
+.zambi-real{display:block;width:100%;height:100%;object-fit:contain;user-select:none;pointer-events:none}
+#hz .zambi-wrap{height:38px}
+#bot{flex-direction:column;align-items:flex-end;gap:8px}
+#botBtn{width:112px;height:98px;border:0;background:transparent;box-shadow:none;padding:0;overflow:visible;position:relative;isolation:isolate;transition:transform .2s}
+#botBtn::before{content:"";position:absolute;left:8%;right:6%;bottom:1px;height:19px;background:radial-gradient(ellipse,rgba(64,170,219,.6),rgba(64,170,219,0) 72%);border-radius:50%;z-index:-1}
+#botBtn .zambi-wrap{width:110px;height:92px}
+#botBtn:hover{transform:translateY(-4px)}
+#botBtn:focus-visible{outline:2px solid #62c9ff;outline-offset:4px}
+#botBtn.diving{animation:zambi-dive 1.35s ease-in-out both}
+#botBtn.diving::after{content:"";position:absolute;left:20%;bottom:2px;width:62%;height:17px;border:2px solid #69bfe5;border-radius:50%;opacity:0;animation:zambi-ripple 1.35s ease-out both}
+@keyframes zambi-dive{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1}22%{transform:translateY(-23px) rotate(-8deg) scale(1.04);opacity:1}47%{transform:translateY(36px) rotate(15deg) scale(.75);opacity:.14}64%{transform:translateY(45px) scale(.52);opacity:0}84%{transform:translateY(6px) scale(.86);opacity:.7}100%{transform:translateY(0) rotate(0deg) scale(1);opacity:1}}
+@keyframes zambi-ripple{0%,40%{transform:scale(.2);opacity:0}55%{opacity:.8}100%{transform:scale(2);opacity:0}}
+#botBubble{max-width:min(330px,calc(100vw - 32px));padding:14px 16px;border-radius:13px;line-height:1.5;max-height:65vh;overflow-y:auto}
+#botBubble.on{animation:bot-emerge .2s ease-out}
+@keyframes bot-emerge{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+#botBubble::after{content:"HALO assistant · Zambi";display:block;font-size:10px;letter-spacing:.09em;color:#8eabc4;margin-top:10px;text-transform:uppercase}
+#botBubble .bt{gap:7px}
+@media (prefers-reduced-motion:reduce){#botBtn.diving,#botBtn.diving::after{animation:none!important}#botBubble.on{animation:none!important}}
+
+
+/* Keep floating assistant clear of action buttons */
+main{padding-bottom:180px}
+@media(max-width:560px){main{padding-bottom:190px}}
