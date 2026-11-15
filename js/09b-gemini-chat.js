@@ -16,9 +16,15 @@ async function askGeminiZambi({ session, signal } = {}) {
   };
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 12000);
+  const timer = setTimeout(() => controller.abort(), 60000);
+
+  const onExternalAbort = () => controller.abort();
   if (signal) {
-    signal.addEventListener('abort', () => controller.abort(), { once: true });
+    if (signal.aborted) {
+      controller.abort();
+    } else {
+      signal.addEventListener('abort', onExternalAbort, { once: true });
+    }
   }
 
   try {
@@ -36,5 +42,8 @@ async function askGeminiZambi({ session, signal } = {}) {
     return null;
   } finally {
     clearTimeout(timer);
+    if (signal) {
+      signal.removeEventListener('abort', onExternalAbort);
+    }
   }
 }
