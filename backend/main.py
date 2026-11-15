@@ -25,7 +25,7 @@ client = (
     else None
 )
 
-app = FastAPI(title="HALO Backend")
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
@@ -33,8 +33,9 @@ app.add_middleware(
         "http://localhost:8000",
         "http://127.0.0.1:8000",
         "http://localhost:5500",
-        "https://halo-mission.vercel.app/",
+        "http://127.0.0.1:5500",
     ],
+    allow_origin_regex=r"^https://.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
