@@ -25,6 +25,13 @@ client = (
     else None
 )
 
+CHAT_MODELS = [
+    "gemini-3.8-flash",
+    "gemini-3.8-flash-lite",
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+]
+
 app = FastAPI()
 
 app.add_middleware(
@@ -117,6 +124,38 @@ def analyze_facial_cues(image_bytes: bytes) -> Dict:
     }
 
 
+def _generate_chat_response(contents: List[types.Content], req: ChatRequest):
+    system_instruction = build_system_prompt(req)
+    last_error = None
+
+    for model_name in CHAT_MODELS:
+        try:
+            config_kwargs = {
+                "system_instruction": system_instruction,
+                "temperature": 0.75,
+                "max_output_tokens": 600,
+            }
+            if model_name.startswith(("gemini-2.5", "gemini-3")):
+                config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+
+            res = client.models.generate_content(
+                model=model_name,
+                contents=contents,
+                config=types.GenerateContentConfig(**config_kwargs),
+            )
+            print(f"OK /api/chat usando modelo: {model_name}")
+            return res
+        except Exception as e:
+            last_error = e
+            err_msg = str(e)
+            if "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg or "404" in err_msg or "NOT_FOUND" in err_msg:
+                print(f"Fallback en /api/chat ({model_name}): {err_msg}")
+                continue
+            raise
+
+    raise last_error
+
+
 @app.post("/api/chat")
 async def chat_with_zambi(req: ChatRequest):
     if not client:
@@ -143,16 +182,7 @@ async def chat_with_zambi(req: ChatRequest):
         return {"reply": None}
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=contents,
-            config=types.GenerateContentConfig(
-                system_instruction=build_system_prompt(req),
-                temperature=0.75,
-                max_output_tokens=600,
-                thinking_config=types.ThinkingConfig(thinking_budget=0),
-            ),
-        )
+        response = _generate_chat_response(contents, req)
         reply = (response.text or "").strip()
         return {"reply": reply or None}
     except Exception as e:
