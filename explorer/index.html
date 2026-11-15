@@ -2,31 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HALO | 3D Well-being Explorer</title>
+<title>HALO – 3D Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/aerospace-theme.css">
 <link rel="stylesheet" href="css/01-layout-and-theme.css">
 <link rel="stylesheet" href="css/02-accessibility.css">
 </head>
-<body>
+<body class="estacion">
 <header>
-  <div class="logo">
-    <div class="emblem">✧</div>
+  <a href="../" class="brand" style="text-decoration:none;color:inherit;">
+    <div id="hz"></div>
     <div>
-      <div class="brand">HALO</div>
-      <div class="brand-sub">Human Adaptation &amp; Life Operations</div>
+      <h1>HALO</h1>
+      <small>Mental well-being on mission</small>
     </div>
-  </div>
+  </a>
   <div class="header-right">
-    <span class="hide-small">CREW WELL-BEING / VISUAL EXPLORER</span>
-    <span class="prototype">INTERACTIVE DEMO</span>
+    <span class="hide-small">3D Well-being View</span>
+    <span class="prototype">Preview</span>
     <a href="../" class="reset" style="text-decoration:none;">← Back to HALO</a>
   </div>
 </header>
-<main class="wrap"><div class="eyebrow">Astronaut well-being · 3D overview</div><h1>A clearer view of your well-being.</h1><p class="intro">Explore a rotatable 3D astronaut and select an indicator to understand its recent pattern, mission context, and a practical next step.</p>
+<main class="wrap"><div class="eyebrow">3D view · Well-being check</div><h1>Crew well-being in 3D.</h1><p class="intro">Rotate the model and pick an indicator to check recent trends, mission context, and a practical next step.</p>
 <div class="workspace">
-<aside class="panel side"><h2 class="sectionhead">Mission profile</h2><label class="control-label" for="scenario">Operating environment</label><select id="scenario"><option value="station">Orbital space station</option><option value="transit">Interplanetary transit</option><option value="lunar">Lunar surface habitat</option></select><label class="control-label" for="crew">Crew member</label><select id="crew"><option>Alex Morgan (demo)</option><option>Jordan Lee (demo)</option></select><div class="summary"><div class="mini-label">Session overview</div><div class="summary-text">Five psychological well-being domains, shown as personal monitoring indicators.</div></div><div class="metric-list" id="metrics" aria-label="Select a well-being indicator"></div><div class="helptext">Select a domain here or click its marker on the astronaut. Drag the model to rotate it. This visualization does <b>not</b> represent a medical body scan.</div></aside>
-<section class="panel scene-panel" aria-label="Interactive 3D astronaut viewer"><div class="viewport-label">CREW DIGITAL TWIN <small>Illustrative visualization · not a medical scan</small></div><div class="viewport-status"><span class="live-dot"></span> SIMULATED SESSION</div><div class="canvas-shell" id="canvasShell"><canvas id="scene" aria-label="Rotatable 3D astronaut model with selectable well-being indicators"></canvas></div><div class="canvas-controls"><div class="capsule">↔ DRAG TO ROTATE · CLICK MARKERS</div><button id="reset" class="reset">↺ Reset view</button></div></section>
-<aside class="panel detail"><div class="detail-top"><div class="detail-kicker">Selected well-being indicator</div><div class="detail-title" id="detailTitle">Stress</div><div class="statusline"><span id="status" class="status-pill">—</span><span id="score" class="score"></span></div></div><p class="detail-text" id="explanation"></p><div class="chartbox"><div class="charthead">Session trend <span>Last 5 sessions</span></div><svg id="spark" viewBox="0 0 310 142" role="img" aria-label="Indicator score across five sample sessions"></svg><div class="minor">Higher = more reported difficulty · custom 0–100 index</div></div><div class="callout"><strong>WHAT THIS MEANS</strong><p id="meaning"></p></div><div class="next"><b>Suggested support activity</b><span id="support"></span></div><div class="rowactions"><button id="speak" class="speak">◖)) Listen to explanation</button><button id="stopSpeech" class="reset">Stop voice</button></div><div id="message" aria-live="polite"></div><div class="legend"><div class="legend-item"><span class="dot" style="background:var(--teal)"></span> Reference</div><div class="legend-item"><span class="dot" style="background:var(--amber)"></span> Watch</div><div class="legend-item"><span class="dot" style="background:var(--rose)"></span> Follow-up</div><div class="legend-item"><span class="dot" style="background:var(--grey)"></span> No data</div></div></aside>
-</div></main><div class="foot"><b>Important:</b> All displayed astronaut profiles, values, trends, and suggestions are simulated for presentation purposes. HALO’s custom indicators and color bands are not clinically validated thresholds. A color cannot diagnose a condition, and visual markers are conceptual—not anatomical locations of psychological states. For operational use, mission medical professionals must review the methodology, privacy safeguards, and escalation protocols.</div>
+<aside class="panel side"><h2 class="sectionhead">Mission setup</h2><label class="control-label" for="scenario">Environment</label><select id="scenario"><option value="station">Orbital space station</option><option value="transit">Interplanetary transit</option><option value="lunar">Lunar surface habitat</option></select><label class="control-label" for="crew">Crew member</label><select id="crew"><option>Alex Morgan (sample)</option><option>Jordan Lee (sample)</option></select><div class="summary"><div class="mini-label">Overview</div><div class="summary-text">Five well-being indicators tracked across recent mission sessions.</div></div><div class="metric-list" id="metrics" aria-label="Select a well-being indicator"></div><div class="helptext">Pick an indicator here or click a point on the model. Drag to rotate. Not a medical scan.</div></aside>
+<section class="panel scene-panel" aria-label="Interactive 3D astronaut viewer"><div class="viewport-label">3D MODEL <small>Sample view · not a medical scan</small></div><div class="viewport-status"><span class="live-dot"></span> SAMPLE SESSION</div><div class="canvas-shell" id="canvasShell"><canvas id="scene" aria-label="Rotatable 3D astronaut model with selectable well-being indicators"></canvas></div><div class="canvas-controls"><div class="capsule">↔ Drag to rotate · Click markers</div><button id="reset" class="reset">↺ Reset view</button></div></section>
+<aside class="panel detail"><div class="detail-top"><div class="detail-kicker">Selected indicator</div><div class="detail-title" id="detailTitle">Stress</div><div class="statusline"><span id="status" class="status-pill">—</span><span id="score" class="score"></span></div></div><p class="detail-text" id="explanation"></p><div class="chartbox"><div class="charthead">Recent trend <span>Last 5 sessions</span></div><svg id="spark" viewBox="0 0 310 142" role="img" aria-label="Indicator score across five sample sessions"></svg><div class="minor">Higher = more reported difficulty · 0–100 scale</div></div><div class="callout"><strong>Context</strong><p id="meaning"></p></div><div class="next"><b>Next step</b><span id="support"></span></div><div class="rowactions"><button id="speak" class="speak">◖)) Read aloud</button><button id="stopSpeech" class="reset">Stop voice</button></div><div id="message" aria-live="polite"></div><div class="legend"><div class="legend-item"><span class="dot" style="background:var(--teal)"></span> Baseline</div><div class="legend-item"><span class="dot" style="background:var(--amber)"></span> Watch</div><div class="legend-item"><span class="dot" style="background:var(--rose)"></span> Follow-up</div><div class="legend-item"><span class="dot" style="background:var(--grey)"></span> No data</div></div></aside>
+</div></main><div class="foot"><b>Note:</b> Profiles, scores, and suggestions shown here are sample data for display only. Color bands are not clinical thresholds and markers are conceptual, not medical locations.</div>
+<script defer src="../js/01-utils.js"></script>
+<script defer src="../js/02-zambi-chatbot.js"></script>
 <script defer src="js/01-indicators-and-demo-data.js"></script>
 <script defer src="js/02-application-state.js"></script>
 <script defer src="js/03-metrics-and-trend-chart.js"></script>
