@@ -22,4 +22,3 @@ const pct=(v,b)=>(v-b)/b*100;
 const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2800)}
 let CLEAN=[];function cleanup(){CLEAN.forEach(f=>{try{f()}catch(e){}});CLEAN=[]}
-

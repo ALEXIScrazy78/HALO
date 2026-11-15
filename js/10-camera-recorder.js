@@ -1,10 +1,4 @@
 // HALO | 10 camera recorder
-const HALO_EMOTION_API_BASE =
-  window.HALO_API_BASE ||
-  (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
-    ? "http://127.0.0.1:8000"
-    : "https://TU-BACKEND-EN-RENDER.onrender.com");
-
 function recorder() {
   const R = {
     state: "idle",

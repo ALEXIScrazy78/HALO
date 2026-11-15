@@ -1,6 +1,4 @@
 // HALO | 09b gemini backend bridge
-const HALO_API_BASE = '';
-
 async function askGeminiZambi({ session, signal } = {}) {
   const scn = SCN[session.scn] || SCN.estacion;
   const topicsHit = Object.entries(topics(session.f1.text || ''))
@@ -39,4 +37,4 @@ async function askGeminiZambi({ session, signal } = {}) {
   } finally {
     clearTimeout(timer);
   }
-}   
+}
